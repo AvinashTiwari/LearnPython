@@ -1,0 +1,6 @@
+tup = ('Oranges', "Apples", "Banana")
+print(tup)
+print(tup[0])
+print(tup[0:2])
+tup2 = (12,14)
+print(tup + tup2)
