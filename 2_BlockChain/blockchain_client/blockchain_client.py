@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, render_template
-import Crypto
-import Crypto.Random
-from Crypto.PublicKey import RSA
+import Cryptodome
+import Cryptodome.Random
+from Cryptodome.PublicKey import RSA
 import binascii
+
 
 class Transaction:
 
@@ -21,6 +22,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/generate/transaction', methods=['POST'])
+def generate_transaction():
+    return 'Done!'
+
+
 @app.route('/make/transaction')
 def make_transaction():
     return render_template('make_transaction.html')
@@ -33,7 +39,7 @@ def view_transactions():
 
 @app.route('/wallet/new')
 def new_wallet():
-    random_gen = Crypto.Random.new().read
+    random_gen = Cryptodome.Random.new().read
     private_key = RSA.generate(1024, random_gen)
     public_key = private_key.publickey()
 
