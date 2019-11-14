@@ -13,3 +13,15 @@ print(type(paragraph))
 print(paragraph.text)
 print(paragraph['class'])
 print(paragraph.attrs)
+
+for string in soup.strings:
+    print(string)
+
+for string in soup.stripped_strings:
+    print(string)
+
+print("Avinash " + soup.body.next_sibling)
+
+sapn = soup.select('span.temp')
+print(sapn)
+print(sapn[0])
