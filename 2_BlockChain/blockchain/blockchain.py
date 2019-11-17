@@ -3,9 +3,9 @@ from time import time
 from flask_cors import CORS
 from collections import OrderedDict
 import binascii
-from Crypto.PublicKey import RSA
-from Crypto.Signature import PKCS1_v1_5
-from Crypto.Hash import SHA
+from Cryptodome.PublicKey import RSA
+from Cryptodome.Signature import PKCS1_v1_5
+from Cryptodome.Hash import SHA
 
 MINING_SENDER = "The Blockchain"
 
