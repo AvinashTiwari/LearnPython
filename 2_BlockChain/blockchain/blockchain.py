@@ -9,6 +9,7 @@ from Cryptodome.Hash import SHA
 
 MINING_SENDER = "The Blockchain"
 
+
 class Blockchain:
 
     def __init__(self):
@@ -75,10 +76,18 @@ def index():
     return render_template('./index.html')
 
 
+@app.route('/transactions/get', methods=['GET'])
+def get_transactions():
+    transactions = blockchain.transactions
+    response = {'transactions': transactions}
+    return jsonify(response), 200
+
+
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     values = request.form
-    required = ['confirmation_sender_public_key', 'confirmation_recipient_public_key', 'transaction_signature', 'confirmation_amount']
+    required = ['confirmation_sender_public_key', 'confirmation_recipient_public_key', 'transaction_signature',
+                'confirmation_amount']
     if not all(k in values for k in required):
         return 'Missing values', 400
 
