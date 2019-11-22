@@ -7,6 +7,8 @@ from Cryptodome.PublicKey import RSA
 from Cryptodome.Signature import PKCS1_v1_5
 from Cryptodome.Hash import SHA
 from uuid import uuid4
+import json
+import hashlib
 
 MINING_SENDER = "The Blockchain"
 MINING_REWARD = 1
@@ -50,7 +52,11 @@ class Blockchain:
         return 12345
 
     def hash(self, block):
-        return 'abc'
+        # We must to ensure that the Dictionary is ordered, otherwise we'll get inconsistent hashes
+        block_string = json.dumps(block, sort_keys=True).encode('utf8')
+        h = hashlib.new('sha256')
+        h.update(block_string)
+        return h.hexdigest()
 
     def submit_transaction(self, sender_public_key, recipient_public_key, signature, amount):
         transaction = OrderedDict({
@@ -90,6 +96,16 @@ def index():
 def get_transactions():
     transactions = blockchain.transactions
     response = {'transactions': transactions}
+    return jsonify(response), 200
+
+
+@app.route('/chain', methods=['GET'])
+def get_chain():
+    response = {
+        'chain': blockchain.chain,
+        'length': len(blockchain.chain)
+    }
+
     return jsonify(response), 200
 
 
