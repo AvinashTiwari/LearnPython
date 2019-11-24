@@ -1,0 +1,3 @@
+NAME = "Avinash"
+
+p NAME
