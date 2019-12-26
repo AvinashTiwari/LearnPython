@@ -1,0 +1,16 @@
+myfile = open('./router.txt','r')
+print(myfile.mode)
+print(myfile.read())
+print(myfile.read(5))
+print(myfile.tell())
+print(myfile.seek(0))
+print(myfile.read(5))
+print(myfile.seek(0))
+print(myfile.readline())
+print(myfile.readline())
+print(myfile.seek(0))
+print(myfile.readlines())
+print(myfile.seek(0))
+for line in myfile.readlines():
+    if line.startswith("A"):
+        print(line)
