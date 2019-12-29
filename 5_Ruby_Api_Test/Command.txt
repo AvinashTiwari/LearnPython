@@ -1,3 +1,4 @@
+rails s
 rails g model article title content:text slug
 
 rails db:migrate
@@ -10,3 +11,5 @@ rake db:migrate RAILS_ENV=test
 rspec spec/models/article_spec.rb
 
 rake db:drop:_unsafe
+
+rspec spec/routing/article_spec.rb      
