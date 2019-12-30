@@ -1,5 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-     render json: "Hello"
+    articles = Article.recent.
+      page(current_page).
+      per(per_page)
+    render json: articles
+   end
+
+   def show
    end
 end
