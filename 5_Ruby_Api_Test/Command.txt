@@ -12,4 +12,6 @@ rspec spec/models/article_spec.rb
 
 rake db:drop:_unsafe
 
-rspec spec/routing/article_spec.rb      
+rspec spec/routing/article_spec.rb   
+
+rails g serializer article title content slug   
