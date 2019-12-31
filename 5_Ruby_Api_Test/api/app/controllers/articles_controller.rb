@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    articles = Article.recent.
-      page(current_page).
-      per(per_page)
+    articles = Article.recent
     render json: articles
    end
 
