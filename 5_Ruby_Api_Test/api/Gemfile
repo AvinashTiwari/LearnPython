@@ -15,6 +15,7 @@ gem 'puma', '~> 3.7'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'active_model_serializers'
+gem 'kaminari'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
