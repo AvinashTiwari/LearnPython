@@ -170,7 +170,7 @@ DEPENDENCIES
   byebug
   factory_bot_rails
   kaminari
-  octokit (~> 4.0)
+  octokit
   puma (~> 3.7)
   rails (~> 5.1.3)
   rspec-rails
