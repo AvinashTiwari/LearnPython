@@ -1,9 +1,16 @@
 import threading
 import time
 
-#Threading
-start() #simply starts or initiates the thread
+def myfunction():
+    print("A")
+    time.sleep(3)
+    print("B")
 
-join() #makes sure the program waits for all threads to terminate
+threads = []
+for i in range(5):
+    th = threading.Thread(target= myfunction)
+    th.start()
+    threads.append(th)
 
-th = threading.Thread(target = myfunction) #using the Thread class form the 'threading' module and telling it the target function to be executed using the 'target' argument
+for th in threads:
+    th.join()
